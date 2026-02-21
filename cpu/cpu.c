@@ -41,16 +41,19 @@ static state_t route_r_type(cpu_t *cpu, memory_t *memory, instruction_t *inst)
 
 void cpu_init(void)
 {
-    opcode_table[0x00] = route_r_type; /*for all R type*/
-    r_type_table[0x20] = exec_add; /*the funct value*/
+	opcode_table[0x00] = route_r_type; /* for all R type */
+	r_type_table[0x20] = exec_add;  /* add */
+	r_type_table[0x22] = exec_sub;  /* sub */
+	r_type_table[0x2A] = exec_slt;  /* slt */
 
-    opcode_table[0x23] = exec_lw;
+	opcode_table[0x08] = exec_addi; /* addi */
+	opcode_table[0x23] = exec_lw;   /* lw */
+	opcode_table[0x2B] = exec_sw;   /* sw */
+	opcode_table[0x04] = exec_beq;  /* beq */
+	opcode_table[0x02] = exec_j;    /* j */
 
-    opcode_table[0x3F] = exec_halt;
-
-    opcode_table[0x08] = exec_addi;
+	opcode_table[0x3F] = exec_halt; /* HALT Custom */
 }
-
 state_t cpu_tick(cpu_t *cpu, memory_t *memory)
 {
 	instruction_t instruction;
