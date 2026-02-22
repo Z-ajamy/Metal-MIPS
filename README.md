@@ -81,7 +81,8 @@ python3 -c "import sys; sys.stdout.buffer.write(bytes([0x20, 0x01, 0x00, 0x0A, 0
 
 ## 🛠️ Supported Instruction Set (ISA)
 
-The current ISA subset includes the 7 most critical instructions required to run complex algorithms (like loops and conditional branches), plus a custom `HALT` instruction for graceful exits.
+The current ISA subset includes the 7 most critical instructions required to run
+complex algorithms (like loops and conditional branches), plus a custom `HALT` instruction for graceful exits.
 
 | Type | Instruction | Opcode | Funct | Description |
 | :--- | :--- | :---: | :---: | :--- |
